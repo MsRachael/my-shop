@@ -49,8 +49,9 @@ export default function Profile({}: Props) {
           <CategoryCard label="Track Orders" className="w-80 md:w-52 cursor-pointer" />
         </div>
       </div>
-      <Orders headerFormat="w-full text-3xl md:text-3xl lg:text-3xl font-medium text-center md:text-left" 
-      className="w-full items-start justify-center gap-4"/>
+      {/* <Orders headerFormat="w-full text-3xl md:text-3xl lg:text-3xl font-medium text-center md:text-left" 
+      className="w-full items-start justify-center gap-4"/> */}
+      <Orders />
     </div>
   );
 }
