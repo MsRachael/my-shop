@@ -33,7 +33,7 @@ export default function ProductCard({ data }: Props) {
               justify-center gap-4 p-4 bg-gray-100 rounded-lg"
               >
                 <Image
-                  className="h-64 rounded-t-lg object-contain"
+                  className="h-64 w-auto rounded-t-lg object-contain"
                   src={`/products/${data.category.toLowerCase()}${data.img}`}
                   alt={data.name}
                   width={200}

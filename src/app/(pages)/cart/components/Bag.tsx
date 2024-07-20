@@ -1,10 +1,26 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 type Props = {};
 
 export default function Bag({}: Props) {
+
+  const [items, setItems] = useState(1);
+
+  const handleAdd = () => {
+    setItems(items + 1);
+  }
+
+  const handleMinus = () => {
+    if (items > 1) {
+      setItems(items - 1);
+    }
+  }
+
+
   return (
     <div className="min-h-96 md:h-[64vh] overflow-x-hidden overflow-scroll w-full lg:w-[800px] flex flex-col my-8 px-2 gap-6">
     <div className="w-auto lg:w-full flex flex-col md:flex-row bg-slate-100 rounded-lg md:px-8 py-4">
@@ -15,8 +31,7 @@ export default function Bag({}: Props) {
             alt="Product Image"
             width={100}
             height={100}
-            className="w-auto h-auto object-contain shadow-sm  p-2"
-            priority={true}
+            className="h-28 w-28 object-contain shadow-sm  p-2"
           />
           <div className="flex flex-col gap-2">
             <Link
@@ -29,14 +44,16 @@ export default function Bag({}: Props) {
                 alt="Minus Icon"
                 width={15}
                 height={15}
+                onClick={handleMinus}
               />
-              <span className="w-auto h-auto text-lg font-medium">1</span>
+              <span className="text-lg font-medium">{items}</span>
               <Image
                 className="cursor-pointer border rounded-lg h-6 w-6 p-1"
                 src="/icons/plus.svg"
                 alt="Plus Icon"
                 width={15}
                 height={15}
+                onClick={handleAdd}
               />
             </div>
           </div>

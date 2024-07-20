@@ -15,7 +15,7 @@ export default function FeaturedSection({ data }: Props) {
           className="relative h-72 lg:h-80 w-72 lg:w-80 flex flex-col items-center justify-center gap-4 p-4 bg-gray-100 rounded-lg"
         >
           <Image
-          className="h-64 rounded-t-lg object-contain"
+          className="h-64 w-auto rounded-t-lg object-contain"
             src={
               `/products/${product.category.toLowerCase()}${product.img}` ||
               "/placeholder/placeholder.svg"

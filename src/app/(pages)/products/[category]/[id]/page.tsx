@@ -10,7 +10,7 @@ export default function ProductPage() {
   const params = urlPath.split("/");
   const product = products.find((product) => product.id === Number(params[3]));
   return (
-    <div className=" flex flex-col md:flex-row items-center justify-center gap-8 my-4">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-8 my-4">
       {product && (
         <ImageSet
           data={{

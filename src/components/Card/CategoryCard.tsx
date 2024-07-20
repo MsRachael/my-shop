@@ -1,22 +1,32 @@
-import { categories } from "@/static/data";
 import Link from "next/link";
 import React from "react";
+import { twMerge } from "tw-merge";
 
-type Props = {};
+type Props = {
+  label: string;
+  href?: string;
+  className?: string;
+};
 
-export default function CategoryCard({}: Props) {
+export default function CategoryCard({ label, href, className}: Props) {
   return (
-    <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-4">
-      {categories.map((category, index) => (
+    <>
+      {href ? (
         <Link
-          href={`/products/${category.label.toLowerCase()}`}
-          key={index}
-          className="text-lg font-semibold flex items-center justify-center 
-          p-4 bg-gray-100 rounded-lg hover:bg-neutral-200 hover:text-black"
+          href={`/products${href}`}
+          className={twMerge(`text-lg font-semibold flex items-center justify-center p-4
+            bg-gray-100 rounded-lg hover:bg-neutral-200 hover:text-black ${className}`)}
         >
-          {category.label}
+          {label}
         </Link>
-      ))}
-    </div>
+      ) : (
+        <div
+        className={twMerge(`text-lg font-semibold flex items-center justify-center p-4
+          bg-gray-100 rounded-lg hover:bg-neutral-200 hover:text-black ${className}`)}
+        >
+          {label}
+        </div>
+      )}
+    </>
   );
 }

@@ -1,3 +1,5 @@
+import { stat } from "fs";
+
 const defaultRoutes = [
   { label: "Men", href: "/products/men" },
   { label: "Women", href: "/products/women" },
@@ -11,6 +13,81 @@ const categories = [
   { label: "Kids", href: "/kids" },
   { label: "Accessories", href: "/accessories" },
 ];
+
+const filterData = [
+  { label: "Price"},
+  { label: "Popular"},
+  { label: "Newest"},
+  { label: "Offers"},
+
+];
+
+const filterOrderData = [
+  { label: "All"},
+  { label: "Recent"},
+  { label: "Last 6 Month"},
+  { label: "Last Year"},
+];
+
+const recentOrders = [
+  {
+    id: 1,
+    name: "Nike Air Max 270",
+    status: {
+      trackingStatus: "Shipping",
+      payment:{
+        method: "Credit Card",
+        status: "Paid",
+        paymentId: "123456789",
+        dateOfPayment: "10-12-2021, 12:00:00",
+      },
+      dateOfShipment: "Yet to be shipped",
+    },
+    quantity: 2,
+    img: {
+      src: "/products/accessories/nike-air-max-270.png",
+      alt: "Nike Air Max 270",
+    },
+  },
+  {
+    id: 2,
+    name: "Adidas Classic Shirt",
+    status: {
+      trackingStatus: "Delivered",
+      payment:{
+        method: "Debit Card",
+        status: "Paid",
+        paymentId: "123456789",
+        dateOfPayment: "10-12-2021, 12:00:00",
+      },
+      dateOfShipment: "10-12-2021",
+    },
+    quantity: 1,
+    img: {
+      src: "/products/men/adidas-classic-shirt.png",
+      alt: "Adidas Classic Shirt",
+    },
+  },
+  {
+    id: 3,
+    name: "Yellow Sleevless Dress",
+    status: {
+      trackingStatus: "Cancelled",
+      payment:{
+        method: "Credit Card",
+        status: "Paid",
+        paymentId: "123456789",
+        dateOfPayment: "10-12-2021, 12:00:00",
+      },
+      dateOfShipment: "10-12-2021",
+    },
+    quantity: 1,
+    img: {
+      src: "/products/women/yellow-sleevless-dress.png",
+      alt: "Yellow Sleevless Dress",
+    },
+  },
+]
 
 const products = [
   {
@@ -233,4 +310,4 @@ const products = [
   },
 ];
 
-export { defaultRoutes, categories, products };
+export { defaultRoutes, categories, products, filterData, filterOrderData, recentOrders };

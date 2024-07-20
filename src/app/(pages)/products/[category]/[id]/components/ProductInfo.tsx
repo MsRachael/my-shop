@@ -27,7 +27,7 @@ export default function ProductInfo({ data }: Props) {
           <h3 className="text-lg font-medium text-gray-500">Rating: 4.0</h3>
         </div>
         <p className="text-5xl font-semibold text-teal-800">
-          ${data?.price ?? ""}
+        &#8377;{data?.price ?? ""}
         </p>
         <p className="text-lg"> {data?.description}</p>
         <div className="flex items-center justify-start gap-4">
