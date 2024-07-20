@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${poppins.className}`}>
         <Navbar/>
-        <div className="min-h-[calc(100vh-16rem)] px-6 md:px-24 ">
+        <div className="min-h-[calc(100vh-16rem)] px-6 md:px-12 lg:px-24 ">
           {children}
         </div>
         <Footer />

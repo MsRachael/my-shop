@@ -86,13 +86,23 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   useEffect(() => {
     if (!emblaApi) return
 
-    setTweenFactor(emblaApi)
-    tweenOpacity(emblaApi)
-    emblaApi
-      .on('reInit', setTweenFactor)
-      .on('reInit', tweenOpacity)
-      .on('scroll', tweenOpacity)
-  }, [emblaApi, tweenOpacity])
+    const handleReInit = () => {
+      setTweenFactor(emblaApi)
+      tweenOpacity(emblaApi)
+    }
+
+    const handleScroll = () => {
+      tweenOpacity(emblaApi, 'scroll')
+    }
+
+    emblaApi.on('reInit', handleReInit)
+    emblaApi.on('scroll', handleScroll)
+
+    return () => {
+      emblaApi.off('reInit', handleReInit)
+      emblaApi.off('scroll', handleScroll)
+    }
+  }, [emblaApi, setTweenFactor, tweenOpacity])
 
   return (
     <div className="embla rounded">
